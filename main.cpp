@@ -35,9 +35,11 @@ int main(int argc, char **argv) {
         return 1;
     }
 
+    // this is the size to draw things at,
+    // before we scale it to the screen size dimensions mentioned in createWindow
     SDL_RenderSetLogicalSize(globals::renderer,
-                             globals::screenWidth * globals::screenScale,
-                             globals::screenHeight * globals::screenScale);
+                             globals::screenWidth,
+                             globals::screenHeight);
 
     // init SDL image
     if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG) {
