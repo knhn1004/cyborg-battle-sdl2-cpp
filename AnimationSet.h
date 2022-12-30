@@ -10,7 +10,7 @@ public:
     SDL_Texture *spriteSheet;
     // holds the sprite sheet image for all of our animations
 
-    SDL_Texture *whiteSpreadSheet; // use this sprite sheet to show damage
+    SDL_Texture *whiteSpriteSheet; // use this sprite sheet to show damage
     list<Animation> animations;
 
     ~AnimationSet(); // properly delete the sprite sheet
@@ -18,6 +18,12 @@ public:
     Animation *getAnimation(string name);
 
     // TODO: loadAnimationSet
+    void loadAnimationSet(
+        string fileName,
+        list<DataGroupType> &groupTypes,
+        bool setColorKey = false, // SDL color key is used to make a color transparent
+        int transparentPixelIndex = 0,
+        bool createWhiteTexture = false);
 };
 
 #endif /* ANIMATION_SET_H */

@@ -32,3 +32,19 @@ Frame *Animation::getFrame(int frameNumber) {
 
     return &(*it);
 }
+
+void Animation::loadAnimation(ifstream &file, list<DataGroupType> &groupTypes) {
+    getline(file, name);
+    string buffer;
+    getline(file, buffer);
+    stringstream ss;
+    buffer = globals::clipOffDataHeader(buffer);
+    ss << buffer;
+    int numberOfFrames;
+    ss >> numberOfFrames;
+    for (int i = 0; i < numberOfFrames; i++) {
+        Frame newFrame;
+        newFrame.loadFrame(file, groupTypes);
+        frames.push_back(newFrame);
+    }
+}

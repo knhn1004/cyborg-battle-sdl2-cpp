@@ -19,10 +19,11 @@ public:
     float duration;   // how long this frame should be displayed for
     SDL_Point offset; // the offset from the top left of the sprite sheet to the top left of the frame
 
-    list<Group *> groups; // holds groups of additional data for the frame
+    list<Group *> frameData; // holds groups of additional data for the frame
 
     void Draw(SDL_Texture *spriteSheet, float x, float y);
     // TODO: loadFrame
+    void loadFrame(ifstream &file, list<DataGroupType> &groupTypes);
 };
 
 #endif // !FRAME_H

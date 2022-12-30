@@ -21,6 +21,7 @@ public:
     // returns the frame at the given frame number
 
     // TODO: loadAnimation
+    void loadAnimation(ifstream &file, list<DataGroupType> &groupTypes);
 };
 
 #endif // !ANIMATION_H
