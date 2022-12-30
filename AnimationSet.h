@@ -17,7 +17,6 @@ public:
 
     Animation *getAnimation(string name);
 
-    // TODO: loadAnimationSet
     void loadAnimationSet(
         string fileName,
         list<DataGroupType> &groupTypes,

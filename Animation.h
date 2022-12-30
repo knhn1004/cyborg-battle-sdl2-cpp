@@ -20,7 +20,6 @@ public:
     Frame *getFrame(int frameNumber);
     // returns the frame at the given frame number
 
-    // TODO: loadAnimation
     void loadAnimation(ifstream &file, list<DataGroupType> &groupTypes);
 };
 
