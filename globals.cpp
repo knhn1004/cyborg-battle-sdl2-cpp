@@ -1,11 +1,13 @@
 #include "globals.h"
 
-const float Globals::PI = 3.14159;
+namespace globals {
 
-bool Globals::debugging = true;
+const float PI = M_PI;
 
-int Globals::ScreenWidth = 640,
-    Globals::ScreenHeight = 352,
-    Globals::ScreenScale = 1;
+bool debugging = true;
 
-SDL_Renderer *Globals::renderer = nullptr;
+int screenWidth = 640, screenHeight = 352, screenScale = 2;
+
+SDL_Renderer *renderer = nullptr;
+
+} // namespace globals

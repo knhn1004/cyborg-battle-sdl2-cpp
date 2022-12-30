@@ -1,22 +1,21 @@
-#ifndef GLOBALS_H
-#define GLOBALS_H
+#ifndef GLOBALS
+#define GLOBALS
 
 #include "randomNumber.h"
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <math.h>
 #include <string>
 
-class Globals {
-public:
-    // math helpers
-    static const float PI;
+namespace globals {
 
-    // useful for me as a dev
-    static bool debugging;
+extern const float PI;
 
-    // SDL related
-    static int ScreenWidth, ScreenHeight, ScreenScale;
-    static SDL_Renderer *renderer;
-};
+extern bool debugging;
 
-#endif /* GLOBALS_H */
+extern int screenWidth, screenHeight, screenScale;
+
+extern SDL_Renderer *renderer;
+}; // namespace globals
+
+#endif // !GLOBALS

@@ -15,8 +15,8 @@ int main(int argc, char **argv) {
     SDL_Window *window = SDL_CreateWindow("Cyborg Battle",
                                           SDL_WINDOWPOS_CENTERED,
                                           SDL_WINDOWPOS_CENTERED,
-                                          Globals::ScreenWidth * Globals::ScreenScale,
-                                          Globals::ScreenHeight * Globals::ScreenScale,
+                                          globals::screenWidth * globals::screenScale,
+                                          globals::screenHeight * globals::screenScale,
                                           SDL_WINDOW_SHOWN);
     if (window == nullptr) {
         cout << "SDL_CreateWindow Error: " << SDL_GetError() << endl;
@@ -25,19 +25,19 @@ int main(int argc, char **argv) {
     }
 
     // setup renderer
-    Globals::renderer = SDL_CreateRenderer(window,
+    globals::renderer = SDL_CreateRenderer(window,
                                            -1,
                                            SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if (Globals::renderer == nullptr) {
+    if (globals::renderer == nullptr) {
         cleanup(window);
         cout << "SDL_CreateRenderer Error: " << SDL_GetError() << endl;
         SDL_Quit();
         return 1;
     }
 
-    SDL_RenderSetLogicalSize(Globals::renderer,
-                             Globals::ScreenWidth * Globals::ScreenScale,
-                             Globals::ScreenHeight * Globals::ScreenScale);
+    SDL_RenderSetLogicalSize(globals::renderer,
+                             globals::screenWidth * globals::screenScale,
+                             globals::screenHeight * globals::screenScale);
 
     // init SDL image
     if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG) {
@@ -62,21 +62,21 @@ int main(int argc, char **argv) {
 
     // load up texture to draw
     string resPath = getResourcePath();
-    SDL_Texture *texture = loadTexture(resPath + "map.png", Globals::renderer);
+    SDL_Texture *texture = loadTexture(resPath + "map.png", globals::renderer);
 
     // run game for 5000 ticks (5000ms)
     while (SDL_GetTicks() < 5000) {
         // clear the screen
-        SDL_RenderClear(Globals::renderer);
+        SDL_RenderClear(globals::renderer);
 
         // draw what we want to draw
-        renderTexture(texture, Globals::renderer, 0, 0);
+        renderTexture(texture, globals::renderer, 0, 0);
 
         // show image we've been rendering
-        SDL_RenderPresent(Globals::renderer);
+        SDL_RenderPresent(globals::renderer);
     }
 
-    cleanup(Globals::renderer);
+    cleanup(globals::renderer);
     cleanup(window);
     cleanup(texture);
 
