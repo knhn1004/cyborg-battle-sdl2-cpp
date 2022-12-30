@@ -13,6 +13,7 @@
 using namespace std;
 
 class Frame {
+public:
     int frameNumber;  // or frame index
     SDL_Rect clip;    // it's the region on the sprite sheet that we want to draw
     float duration;   // how long this frame should be displayed for
